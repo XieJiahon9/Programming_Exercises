@@ -1,0 +1,10 @@
+In Python you can assign values to variables without declaring their type explicitly.
+In Python you can use indentation to define blocks of code for structure and readability.
+In Python you can write conditional statements with if, elif, and else for decision-making.
+In Python you can create loops using for and while to iterate over sequences or repeat actions.
+In Python you can define functions with the def keyword to organize reusable code.
+In Python you can work with data structures like lists, tuples, and dictionaries to store collections.
+In Python you can handle files for reading and writing data using built-in functions.
+In Python you can import modules and packages to extend functionality with pre-written code.
+In Python you can catch and handle exceptions with try-except blocks for error management.
+In Python you can create classes and objects to implement object-oriented programming concepts.
