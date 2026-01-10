@@ -8,4 +8,7 @@ class Settings:
         self.screen_width = 1200  #屏幕宽度
         self.screen_height = 800  #屏幕高度
         self.bg_color = (255, 255, 255)  # 设置背景颜色,颜色为RBG值
+        
+        # 飞船设置
+        self.ship_speed = 1.5  # 飞船初始速度
 

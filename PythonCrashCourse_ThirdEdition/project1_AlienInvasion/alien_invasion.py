@@ -23,12 +23,10 @@ class AlienInvasion:
     def run_game(self):
         """ 开始游戏主循环 """
         while True:
-            # 侦听键盘鼠标事件
-            self._check_events()
-                    
-            # 每次循环时重绘屏幕,并且刷新屏幕
-            self._update_screen()
-
+            
+            self._check_events()  # 侦听键盘鼠标事件
+            self.ship.update()  # 飞船移动
+            self._update_screen()  # 每次循环时重绘屏幕,并且刷新屏幕
             self.clock.tick(60)  # 使循环每秒运行60次/60帧
 
     def _check_events(self):  # 将管理事件的代码改写为辅助方法(只在类内调用)
@@ -36,15 +34,25 @@ class AlienInvasion:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:  # 退出游戏
                 sys.exit()
+            # 游戏移动
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_RIGHT:  # 向右移动
-                    self.ship.rect.x += 1
-                elif event.key == pygame.K_LEFT:  # 向左移动
-                    self.ship.rect.x -= 1
-                elif event.key == pygame.K_UP:  # 向上移动
-                    self.ship.rect.y -= 1
-                elif event.key == pygame.K_DOWN:  # 向下移动
-                    self.ship.rect.y += 1
+                if event.key == pygame.K_RIGHT:  
+                    self.ship.moving_right = True
+                elif event.key == pygame.K_LEFT:  
+                    self.ship.moving_left = True
+                elif event.key == pygame.K_UP:  
+                    self.ship.moving_up = True
+                elif event.key == pygame.K_DOWN:  
+                    self.ship.moving_down = True
+            elif event.type == pygame.KEYUP:
+                if event.key == pygame.K_RIGHT:
+                    self.ship.moving_right = False
+                elif event.key == pygame.K_LEFT:
+                    self.ship.moving_left = False
+                elif event.key == pygame.K_UP:
+                    self.ship.moving_up = False
+                elif event.key == pygame.K_DOWN:
+                    self.ship.moving_down = False
 
     def _update_screen(self):  #更新屏幕代码改写为辅助方法
         """ 绘制屏幕并且切换到新屏幕 """
