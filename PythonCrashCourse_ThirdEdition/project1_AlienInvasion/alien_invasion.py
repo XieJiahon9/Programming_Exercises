@@ -34,8 +34,17 @@ class AlienInvasion:
     def _check_events(self):  # 将管理事件的代码改写为辅助方法(只在类内调用)
         """ 响应键盘和鼠标事件 """
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
+            if event.type == pygame.QUIT:  # 退出游戏
                 sys.exit()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RIGHT:  # 向右移动
+                    self.ship.rect.x += 1
+                elif event.key == pygame.K_LEFT:  # 向左移动
+                    self.ship.rect.x -= 1
+                elif event.key == pygame.K_UP:  # 向上移动
+                    self.ship.rect.y -= 1
+                elif event.key == pygame.K_DOWN:  # 向下移动
+                    self.ship.rect.y += 1
 
     def _update_screen(self):  #更新屏幕代码改写为辅助方法
         """ 绘制屏幕并且切换到新屏幕 """
